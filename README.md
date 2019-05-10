@@ -2,6 +2,7 @@
 	<img height="250" src="./demo.png" alt="sample message">
 	<h1><b>Pullb0t</b></h1>
 	<p><b>A bot for posting new Gitlab Merge requests to a Slack Webhook with automatic JIRA integration</b></p>
+  <p>Developed with ❤️ by <a href="https://cloudcall.com">CloudCall</a></p>
 	</br>
 	</br>
 </div>
@@ -52,4 +53,7 @@ docker run -d --restart always \ --name pullb0t \
 Please create a new issue [here](https://github.com/joshghent/pullb0t/issues/new)
 
 ## License
-MIT
+MIT - CloudCall
+
+## Author
+[Josh Ghent](https://github.com/joshghent) on behalf of [CloudCall](https://cloudcall.com)
