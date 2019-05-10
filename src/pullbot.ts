@@ -68,6 +68,7 @@ export class PullBot {
       method: "POST",
       uri: process.env.SLACK_WEBHOOK_URL || "",
       body: {
+        "link_names": 1,
         "text": `@here :rocket: \n*MR:* ${mergeRequestUrl} \n*JIRA:* ${jiraTicket.url} \n*DESC:* ${jiraTicket.title}\n`
       },
       json: true
