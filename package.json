@@ -1,14 +1,19 @@
 {
   "name": "pullb0t",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "A bot for posting new Gitlab Merge requests to a Slack Webhook with automatic JIRA integration",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node dist/server.js",
     "build": "tsc"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshghent/pullb0t"
+  },
+  "author": "Josh Ghent <me@joshghent.com>",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
