@@ -1,0 +1,31 @@
+{
+  "name": "pullb0t",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "jira-api-wrapper": "^0.9.2",
+    "path": "^0.12.7",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/compression": "0.0.36",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.16.1",
+    "@types/node": "^12.0.0",
+    "@types/request-promise": "^4.1.43",
+    "typescript": "^3.4.5"
+  }
+}
