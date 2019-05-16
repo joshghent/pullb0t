@@ -14,18 +14,29 @@ if (fs.existsSync(".env")) {
   dotenv.config({ path: ".env.example" });  // you can delete this after you create your own .env file!
 }
 
-// Create Express server
-const app = express();
+export class Application {
+  private static instance: express.Application;
+  public static getInstance(): express.Application {
+    // Create Express server
+    if (this.instance) {
+      return this.instance
+    }
 
-// Express configuration
-app.set("port", process.env.PORT || 3000);
-app.use(compression());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+    this.instance = express();
 
-/**
- * Primary app routes.
- */
-app.use(new Routes().router);
+    // Express configuration
+    this.instance.set("port", process.env.PORT || 3000);
+    this.instance.use(compression());
+    this.instance.use(bodyParser.json());
+    this.instance.use(bodyParser.urlencoded({ extended: true }));
 
-export default app;
+    /**
+     * Primary app routes.
+     */
+    this.instance.use(new Routes().router);
+
+    return this.instance;
+  }
+}
+
+export default Application;

@@ -1,6 +1,6 @@
 
-import app from "./app";
-
+import Application from "./app";
+const app = Application.getInstance();
 /**
  * Start Express server.
  */
