@@ -11,7 +11,7 @@
 */
 
 const request = require('request-promise');
-import JiraApi from 'jira-api-wrapper';
+import { Client as JiraApi, Config } from 'jira.js';
 
 interface IJiraTicket {
   url: string;
@@ -26,11 +26,13 @@ export class PullBot {
   constructor() {
     this.jira = new JiraApi({
       host: process.env.JIRA_URL || "",
-      basicAuth: {
-        username: process.env.JIRA_USERNAME,
-        password: process.env.JIRA_PASSWORD
+      authentication: {
+        basic: {
+          username: process.env.JIRA_USERNAME,
+          password: process.env.JIRA_PASSWORD
+        }
       }
-    })
+    } as Config)
   }
 
   public async getJiraInfo(mergeRequest: any): Promise<IJiraTicket> {
@@ -47,7 +49,7 @@ export class PullBot {
     let ticketTitle;
     if (ticketNumber) {
       console.log("Found Ticket Number. Getting the issue from JIRA", ticketNumber);
-      const jiraIssue = await this.jira.issue.getIssue({ issueIdOrKey: ticketNumber });
+      const jiraIssue = await this.jira.issues.getIssue({ issueIdOrKey: ticketNumber });
       console.log("Got summary from JIRA", jiraIssue.fields.summary);
       ticketTitle = jiraIssue.fields.summary;
     }
