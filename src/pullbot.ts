@@ -11,7 +11,7 @@
 */
 
 const request = require('request-promise');
-import { Client as JiraApi, Config } from 'jira.js';
+import { Version2Client as JiraApi, Config } from 'jira.js';
 
 interface IJiraTicket {
   url: string;
@@ -49,7 +49,7 @@ export class PullBot {
     let ticketTitle;
     if (ticketNumber) {
       console.log("Found Ticket Number. Getting the issue from JIRA", ticketNumber);
-      const jiraIssue = await this.jira.issues.getIssue({ issueIdOrKey: ticketNumber });
+      const jiraIssue = await this.jira.issues.getIssue<{ fields: { summary: string; } }>({ issueIdOrKey: ticketNumber });
       console.log("Got summary from JIRA", jiraIssue.fields.summary);
       ticketTitle = jiraIssue.fields.summary;
     }
